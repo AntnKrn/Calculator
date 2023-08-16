@@ -1,13 +1,21 @@
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
 .screen {
-    margin-top: 50%;
-    margin-left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     border-radius: 35px;
     width: 300px;
-    height: 500px;
+    height: 570px;
     background-color: black;
+    display: grid;
+    align-content: end;
+}
+
+
+
+.input {
+    color:rgb(211, 211, 208);
+    justify-self: end;
+    margin-right: 15px;
 }

@@ -15,9 +15,13 @@ const Screen = () => {
     const [button, setButton] = useState(buttons)
     return (
         <div className="screen">
-            {buttons.map((el, index) => (
-                <Button index={index} value={el} />
-            ))}
+            <h1 className='input'>1</h1>
+            <div className='keypad'>
+                {buttons.map((el, index) => (
+                        <Button index={index} value={el} />
+                    ))
+                }                
+            </div>
         </div>
     )
 }
