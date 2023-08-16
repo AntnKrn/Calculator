@@ -1,0 +1,7 @@
+.button{
+    position: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 30px 30px;
+    background-color: gray;
+}

@@ -1,0 +1,13 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.screen {
+    margin-top: 50%;
+    margin-left: 50%;
+    border-radius: 35px;
+    width: 300px;
+    height: 500px;
+    background-color: black;
+}
