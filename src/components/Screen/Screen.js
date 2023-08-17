@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from '../Button/Button'
 
 import './Screen.css'
@@ -12,13 +12,20 @@ const buttons = [
 ];
 
 const Screen = () => {
-    const [button, setButton] = useState(buttons)
+    const handleClick = (value) => {
+        console.log(value.target.textContent)
+    }
+    
     return (
         <div className="screen">
-            <h1 className='input'>1</h1>
+            <h1 className='input'>123</h1>
             <div className='keypad'>
                 {buttons.map((el, index) => (
-                        <Button index={index} value={el} />
+                        <Button 
+                          key={index} 
+                          value={el} 
+                          click={handleClick}  
+                        />
                     ))
                 }                
             </div>
