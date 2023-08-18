@@ -22,16 +22,8 @@ const Screen = () => {
 
     let prevValue = prevValueRef.current; 
 
-    const sum = (val1, val2) => val1 + val2;
-
-    const raz = (val1, val2) => val1 - val2;
-
-    const umn = (val1, val2) => val1 * val2;
-
-    const del = (val1, val2) => val1 / val2;
-
     const handleClick = (value) => {
-        if(Number(value.target.className === 'button')){
+        if(value.target.className === 'button'){
             setValueFromKeypod(valueFromKeypod + value.target.textContent)          
         }
 
@@ -40,13 +32,19 @@ const Screen = () => {
             prevValue = '';
         }
 
-        if(value.target.textContent === '+') {
+        if(value.target.textContent === '+/-'){
+            setValueFromKeypod(Number(valueFromKeypod) * -1)
             prevValueRef.current = valueFromKeypod; 
-            setValueFromKeypod('')
-            setOperation(value.target.textContent)
+            return;
         }
 
-        if(value.target.textContent === '-') {
+        if(value.target.textContent === '%'){
+            setValueFromKeypod(Number(valueFromKeypod) / 100)
+            prevValueRef.current = valueFromKeypod; 
+            return;
+        }
+
+        if(value.target.className !== 'button') {
             prevValueRef.current = valueFromKeypod; 
             setValueFromKeypod('')
             setOperation(value.target.textContent)
@@ -54,10 +52,16 @@ const Screen = () => {
 
         if(value.target.textContent === '=') {
             if(operation === '+'){
-                setValueFromKeypod(sum(Number(prevValue), Number(valueFromKeypod)))
+                setValueFromKeypod(Number(prevValue) + Number(valueFromKeypod))
             }
             if(operation === '-') {
-                setValueFromKeypod(raz(Number(prevValue), Number(valueFromKeypod)))
+                setValueFromKeypod(Number(prevValue) - Number(valueFromKeypod))
+            }
+            if(operation === '÷') {
+                setValueFromKeypod(Number(prevValue) / Number(valueFromKeypod))
+            }
+            if(operation === 'x') {
+                setValueFromKeypod(Number(prevValue) * Number(valueFromKeypod))
             }
 
         }
